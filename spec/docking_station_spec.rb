@@ -1,4 +1,5 @@
-require 'docking_station'
+#require 'docking_station'
+require_relative '../lib/docking_station.rb'
 
 describe DockingStation do
     it 'releases a bike' do
@@ -6,5 +7,9 @@ describe DockingStation do
       expect(docking_station).to respond_to{docking_station.release_bike}
     end
 
-    it { is_expected.to respond_to{docking_station.release_bike} }
+    it 'gets a bike and is working' do
+      docking_station = DockingStation.new
+      bike = docking_station.release_bike
+      expect(bike.working?).to eq(true)
+    end
 end
